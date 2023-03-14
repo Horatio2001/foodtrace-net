@@ -1,0 +1,35 @@
+fabric:
+  cas:
+  - "ca1.org0.foodtrace.com"
+  - "ca1.org1.foodtrace.com"
+  - "ca1.org2.foodtrace.com"
+  peers: 
+  - "peer1.org0.foodtrace.com"
+  - "peer2.org0.foodtrace.com"
+  - "peer1.org1.foodtrace.com"
+  - "peer2.org1.foodtrace.com"
+  - "peer1.org2.foodtrace.com"
+  - "peer2.org2.foodtrace.com"
+  orderers:
+  - "orderer1.foodtrace.com"
+  - "orderer2.foodtrace.com"
+  - "orderer3.foodtrace.com"
+  settings:
+    ca:
+      FABRIC_LOGGING_SPEC: DEBUG
+    peer:
+      FABRIC_LOGGING_SPEC: DEBUG
+    orderer:
+      FABRIC_LOGGING_SPEC: DEBUG
+  ### use go proxy when default go proxy is restricted in some of the regions.
+  ### the default goproxy
+  # goproxy: "https://proxy.golang.org,direct"
+  ### the goproxy in China area
+  goproxy: "https://goproxy.cn,direct"
+  ### set the endpoint address to override the automatically detected IP address
+  ### could be a public IP address or a dns name
+  endpoint_address: 101.43.206.180
+  ### set the docker network name to override the automatically generated name.
+  netname: "horatioset"
+  ### set the extra optins for docker run command
+  container_options: "--restart=always --log-opt max-size=10m --log-opt max-file=3"

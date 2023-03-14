@@ -1,0 +1,4 @@
+keyUsage = critical,digitalSignature
+basicConstraints = critical,CA:FALSE
+subjectAltName=IP: 101.43.206.180,DNS:Admin@org0.foodtrace.com,DNS:Admin@org0-foodtrace-com,DNS:localhost,IP:127.0.0.1
+authorityKeyIdentifier = keyid,issuer

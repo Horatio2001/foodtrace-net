@@ -1,0 +1,38 @@
+{
+  "org0-foodtrace-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "101.43.206.180", "port": "7003" },
+           { "host": "101.43.206.180", "port": "7004" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "org1-foodtrace-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "101.43.206.180", "port": "7005" },
+           { "host": "101.43.206.180", "port": "7006" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "org2-foodtrace-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "101.43.206.180", "port": "7007" },
+           { "host": "101.43.206.180", "port": "7008" }
+        ]
+      },
+      "version": "0"
+    }
+  }
+}

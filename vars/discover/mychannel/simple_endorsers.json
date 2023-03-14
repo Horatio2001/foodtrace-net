@@ -1,0 +1,55 @@
+{
+  "Chaincode": "simple",
+  "EndorsersByGroups": {
+    "G0": [
+      {
+        "MSPID": "org1-foodtrace-com",
+        "Endpoint": "101.43.206.180:7006"
+      },
+      {
+        "MSPID": "org1-foodtrace-com",
+        "Endpoint": "101.43.206.180:7005"
+      }
+    ],
+    "G1": [
+      {
+        "MSPID": "org2-foodtrace-com",
+        "Endpoint": "101.43.206.180:7007"
+      },
+      {
+        "MSPID": "org2-foodtrace-com",
+        "Endpoint": "101.43.206.180:7008"
+      }
+    ],
+    "G2": [
+      {
+        "MSPID": "org0-foodtrace-com",
+        "Endpoint": "101.43.206.180:7003"
+      },
+      {
+        "MSPID": "org0-foodtrace-com",
+        "Endpoint": "101.43.206.180:7004"
+      }
+    ]
+  },
+  "Layouts": [
+    {
+      "quantities_by_group": {
+        "G0": 1,
+        "G2": 1
+      }
+    },
+    {
+      "quantities_by_group": {
+        "G1": 1,
+        "G2": 1
+      }
+    },
+    {
+      "quantities_by_group": {
+        "G0": 1,
+        "G1": 1
+      }
+    }
+  ]
+}

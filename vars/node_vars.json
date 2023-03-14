@@ -1,0 +1,193 @@
+{
+  "allcas": [
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.org0.foodtrace.com",
+      "mspid": "org0-foodtrace-com",
+      "name": "ca1",
+      "oport": "8000",
+      "org": "org0.foodtrace.com",
+      "port": "7000",
+      "portmap": "-p 7000:7054 -p 8000:9443",
+      "type": "ca",
+      "url": "101.43.206.180"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.org1.foodtrace.com",
+      "mspid": "org1-foodtrace-com",
+      "name": "ca1",
+      "oport": "8001",
+      "org": "org1.foodtrace.com",
+      "port": "7001",
+      "portmap": "-p 7001:7054 -p 8001:9443",
+      "type": "ca",
+      "url": "101.43.206.180"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.org2.foodtrace.com",
+      "mspid": "org2-foodtrace-com",
+      "name": "ca1",
+      "oport": "8002",
+      "org": "org2.foodtrace.com",
+      "port": "7002",
+      "portmap": "-p 7002:7054 -p 8002:9443",
+      "type": "ca",
+      "url": "101.43.206.180"
+    }
+  ],
+  "allcouchdbs": [],
+  "allorderers": [
+    {
+      "fullname": "orderer1.foodtrace.com",
+      "mspid": "foodtrace-com",
+      "name": "orderer1",
+      "oport": "8009",
+      "org": "foodtrace.com",
+      "port": "7009",
+      "portmap": "-p 7009:7050 -p 8009:7060",
+      "type": "orderer",
+      "url": "101.43.206.180"
+    },
+    {
+      "fullname": "orderer2.foodtrace.com",
+      "mspid": "foodtrace-com",
+      "name": "orderer2",
+      "oport": "8010",
+      "org": "foodtrace.com",
+      "port": "7010",
+      "portmap": "-p 7010:7050 -p 8010:7060",
+      "type": "orderer",
+      "url": "101.43.206.180"
+    },
+    {
+      "fullname": "orderer3.foodtrace.com",
+      "mspid": "foodtrace-com",
+      "name": "orderer3",
+      "oport": "8011",
+      "org": "foodtrace.com",
+      "port": "7011",
+      "portmap": "-p 7011:7050 -p 8011:7060",
+      "type": "orderer",
+      "url": "101.43.206.180"
+    }
+  ],
+  "allorgs": [
+    "foodtrace.com",
+    "org0.foodtrace.com",
+    "org1.foodtrace.com",
+    "org2.foodtrace.com"
+  ],
+  "allpeers": [
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.org0.foodtrace.com",
+      "mspid": "org0-foodtrace-com",
+      "name": "peer1",
+      "oport": "8003",
+      "org": "org0.foodtrace.com",
+      "port": "7003",
+      "portmap": "-p 7003:7051 -p 8003:7061",
+      "type": "peer",
+      "url": "101.43.206.180"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.org0.foodtrace.com",
+      "mspid": "org0-foodtrace-com",
+      "name": "peer2",
+      "oport": "8004",
+      "org": "org0.foodtrace.com",
+      "port": "7004",
+      "portmap": "-p 7004:7051 -p 8004:7061",
+      "type": "peer",
+      "url": "101.43.206.180"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.org1.foodtrace.com",
+      "mspid": "org1-foodtrace-com",
+      "name": "peer1",
+      "oport": "8005",
+      "org": "org1.foodtrace.com",
+      "port": "7005",
+      "portmap": "-p 7005:7051 -p 8005:7061",
+      "type": "peer",
+      "url": "101.43.206.180"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.org1.foodtrace.com",
+      "mspid": "org1-foodtrace-com",
+      "name": "peer2",
+      "oport": "8006",
+      "org": "org1.foodtrace.com",
+      "port": "7006",
+      "portmap": "-p 7006:7051 -p 8006:7061",
+      "type": "peer",
+      "url": "101.43.206.180"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.org2.foodtrace.com",
+      "mspid": "org2-foodtrace-com",
+      "name": "peer1",
+      "oport": "8007",
+      "org": "org2.foodtrace.com",
+      "port": "7007",
+      "portmap": "-p 7007:7051 -p 8007:7061",
+      "type": "peer",
+      "url": "101.43.206.180"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.org2.foodtrace.com",
+      "mspid": "org2-foodtrace-com",
+      "name": "peer2",
+      "oport": "8008",
+      "org": "org2.foodtrace.com",
+      "port": "7008",
+      "portmap": "-p 7008:7051 -p 8008:7061",
+      "type": "peer",
+      "url": "101.43.206.180"
+    }
+  ],
+  "caorgs": [
+    "org0.foodtrace.com",
+    "org1.foodtrace.com",
+    "org2.foodtrace.com"
+  ],
+  "console_port": "7015",
+  "explorer_port": "7013",
+  "ordererorgs": [
+    "foodtrace.com"
+  ],
+  "orgattrs": {
+    "foodtrace.com": {
+      "certpath": "ordererOrganizations",
+      "mspid": "foodtrace-com"
+    },
+    "org0.foodtrace.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "org0-foodtrace-com"
+    },
+    "org1.foodtrace.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "org1-foodtrace-com"
+    },
+    "org2.foodtrace.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "org2-foodtrace-com"
+    }
+  },
+  "peerorgs": [
+    "org0.foodtrace.com",
+    "org1.foodtrace.com",
+    "org2.foodtrace.com"
+  ],
+  "portainer_port": "7014"
+}

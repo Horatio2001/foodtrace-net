@@ -1,0 +1,209 @@
+---
+Organizations:
+  - &foodtrace-com
+      Name: foodtrace-com
+      ID: foodtrace-com
+      MSPDir: keyfiles/ordererOrganizations/foodtrace.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('foodtrace-com.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('foodtrace-com.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('foodtrace-com.admin')"
+  - &org0-foodtrace-com
+      Name: org0-foodtrace-com
+      ID: org0-foodtrace-com
+      MSPDir: keyfiles/peerOrganizations/org0.foodtrace.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('org0-foodtrace-com.admin', 'org0-foodtrace-com.peer', 'org0-foodtrace-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('org0-foodtrace-com.admin', 'org0-foodtrace-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('org0-foodtrace-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('org0-foodtrace-com.peer')"
+
+      AnchorPeers:
+      - Host: 101.43.206.180
+        Port: 7003
+      - Host: 101.43.206.180
+        Port: 7004
+  - &org1-foodtrace-com
+      Name: org1-foodtrace-com
+      ID: org1-foodtrace-com
+      MSPDir: keyfiles/peerOrganizations/org1.foodtrace.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('org1-foodtrace-com.admin', 'org1-foodtrace-com.peer', 'org1-foodtrace-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('org1-foodtrace-com.admin', 'org1-foodtrace-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('org1-foodtrace-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('org1-foodtrace-com.peer')"
+
+      AnchorPeers:
+      - Host: 101.43.206.180
+        Port: 7005
+      - Host: 101.43.206.180
+        Port: 7006
+  - &org2-foodtrace-com
+      Name: org2-foodtrace-com
+      ID: org2-foodtrace-com
+      MSPDir: keyfiles/peerOrganizations/org2.foodtrace.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('org2-foodtrace-com.admin', 'org2-foodtrace-com.peer', 'org2-foodtrace-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('org2-foodtrace-com.admin', 'org2-foodtrace-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('org2-foodtrace-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('org2-foodtrace-com.peer')"
+
+      AnchorPeers:
+      - Host: 101.43.206.180
+        Port: 7007
+      - Host: 101.43.206.180
+        Port: 7008
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+  Orderer: &OrdererCapabilities
+    V2_0: true
+
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+
+  BatchTimeout: 2s
+
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+
+  Addresses:
+  - 101.43.206.180:7009
+  - 101.43.206.180:7010
+  - 101.43.206.180:7011
+  EtcdRaft:
+    Consenters:
+    - Host: 101.43.206.180
+      Port: 7009
+      ClientTLSCert: keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer1.foodtrace.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer1.foodtrace.com/tls/server.crt
+    - Host: 101.43.206.180
+      Port: 7010
+      ClientTLSCert: keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer2.foodtrace.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer2.foodtrace.com/tls/server.crt
+    - Host: 101.43.206.180
+      Port: 7011
+      ClientTLSCert: keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer3.foodtrace.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer3.foodtrace.com/tls/server.crt
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Profiles:
+  OrgChannel:
+    Consortium: SampleConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - *org0-foodtrace-com
+      - *org1-foodtrace-com
+      - *org2-foodtrace-com
+      Capabilities:
+        <<: *ApplicationCapabilities
+
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+      - *foodtrace-com
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - <<: *foodtrace-com
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+        - *org0-foodtrace-com
+        - *org1-foodtrace-com
+        - *org2-foodtrace-com

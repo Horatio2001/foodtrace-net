@@ -1,0 +1,149 @@
+{
+  "Admin@foodtrace.com": {
+    "key": "Admin@foodtrace.com",
+    "org": "foodtrace.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/foodtrace.com/users/Admin@foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/foodtrace.com/users/Admin@foodtrace.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@org0.foodtrace.com": {
+    "key": "Admin@org0.foodtrace.com",
+    "org": "org0.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org0.foodtrace.com/users/Admin@org0.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org0.foodtrace.com/users/Admin@org0.foodtrace.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@org1.foodtrace.com": {
+    "key": "Admin@org1.foodtrace.com",
+    "org": "org1.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.foodtrace.com/users/Admin@org1.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.foodtrace.com/users/Admin@org1.foodtrace.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@org2.foodtrace.com": {
+    "key": "Admin@org2.foodtrace.com",
+    "org": "org2.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org2.foodtrace.com/users/Admin@org2.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org2.foodtrace.com/users/Admin@org2.foodtrace.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "foodtrace.com": {
+    "key": "foodtrace.com",
+    "org": "foodtrace.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/foodtrace.com/ca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/foodtrace.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "foodtrace.com.tlsca": {
+    "key": "foodtrace.com",
+    "org": "foodtrace.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/foodtrace.com/tlsca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/foodtrace.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "orderer1.foodtrace.com": {
+    "key": "orderer1.foodtrace.com",
+    "org": "foodtrace.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer1.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer1.foodtrace.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer2.foodtrace.com": {
+    "key": "orderer2.foodtrace.com",
+    "org": "foodtrace.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer2.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer2.foodtrace.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer3.foodtrace.com": {
+    "key": "orderer3.foodtrace.com",
+    "org": "foodtrace.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer3.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/foodtrace.com/orderers/orderer3.foodtrace.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "org0.foodtrace.com": {
+    "key": "org0.foodtrace.com",
+    "org": "org0.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org0.foodtrace.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org0.foodtrace.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "org0.foodtrace.com.tlsca": {
+    "key": "org0.foodtrace.com",
+    "org": "org0.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org0.foodtrace.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org0.foodtrace.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "org1.foodtrace.com": {
+    "key": "org1.foodtrace.com",
+    "org": "org1.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.foodtrace.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.foodtrace.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "org1.foodtrace.com.tlsca": {
+    "key": "org1.foodtrace.com",
+    "org": "org1.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.foodtrace.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.foodtrace.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "org2.foodtrace.com": {
+    "key": "org2.foodtrace.com",
+    "org": "org2.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org2.foodtrace.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org2.foodtrace.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "org2.foodtrace.com.tlsca": {
+    "key": "org2.foodtrace.com",
+    "org": "org2.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org2.foodtrace.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org2.foodtrace.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "peer1.org0.foodtrace.com": {
+    "key": "peer1.org0.foodtrace.com",
+    "org": "org0.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org0.foodtrace.com/peers/peer1.org0.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org0.foodtrace.com/peers/peer1.org0.foodtrace.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.org1.foodtrace.com": {
+    "key": "peer1.org1.foodtrace.com",
+    "org": "org1.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.foodtrace.com/peers/peer1.org1.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.foodtrace.com/peers/peer1.org1.foodtrace.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.org2.foodtrace.com": {
+    "key": "peer1.org2.foodtrace.com",
+    "org": "org2.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org2.foodtrace.com/peers/peer1.org2.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org2.foodtrace.com/peers/peer1.org2.foodtrace.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.org0.foodtrace.com": {
+    "key": "peer2.org0.foodtrace.com",
+    "org": "org0.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org0.foodtrace.com/peers/peer2.org0.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org0.foodtrace.com/peers/peer2.org0.foodtrace.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.org1.foodtrace.com": {
+    "key": "peer2.org1.foodtrace.com",
+    "org": "org1.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.foodtrace.com/peers/peer2.org1.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.foodtrace.com/peers/peer2.org1.foodtrace.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.org2.foodtrace.com": {
+    "key": "peer2.org2.foodtrace.com",
+    "org": "org2.foodtrace.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/org2.foodtrace.com/peers/peer2.org2.foodtrace.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org2.foodtrace.com/peers/peer2.org2.foodtrace.com/msp/keystore/priv_sk",
+    "type": "peers"
+  }
+}

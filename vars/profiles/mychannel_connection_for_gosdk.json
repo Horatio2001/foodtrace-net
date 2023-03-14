@@ -1,0 +1,276 @@
+{
+  "name": "horatioset",
+  "x-comment-0": "ROOTPATH should be set to the absolute path of crypto material starting directory",
+  "x-comment-1": "for example: export ROOTPATH=/home/ubuntu/mywork/vars/keyfiles",
+  "x-type": "hlfv-2.3.0",
+  "version": "1.0.0",
+  "client": {
+    "organization": "org1.foodtrace.com",
+    "cryptoconfig": {
+      "path": "${ROOTPATH}"
+    },
+    "connection": {
+      "timeout": {
+        "peer": { "endorser": "300", "eventHub": "300", "eventReg": "300"},
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "mychannel": {
+      "orderers": [
+        "orderer1.foodtrace.com",
+        "orderer2.foodtrace.com",
+        "orderer3.foodtrace.com"
+      ],
+      "peers": {
+        "peer1.org0.foodtrace.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer2.org0.foodtrace.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer1.org1.foodtrace.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer2.org1.foodtrace.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer1.org2.foodtrace.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        },
+        "peer2.org2.foodtrace.com": {
+          "endorsingPeer": true, "chaincodeQuery": true, "eventSource": true
+        }
+      }
+    }
+  },
+  "organizations": {
+    "foodtrace.com": {
+      "mspid": "foodtrace-com",
+      "cryptoPath": "ordererOrganizations/foodtrace.com/users/{username}@foodtrace.com/msp",
+      "orderers": [
+        "orderer1.foodtrace.com",
+        "orderer2.foodtrace.com",
+        "orderer3.foodtrace.com"
+      ],
+      "certificateAuthorities": [
+      ]
+    },
+    "org0.foodtrace.com": {
+      "mspid": "org0-foodtrace-com",
+      "cryptoPath": "peerOrganizations/org0.foodtrace.com/users/{username}@org0.foodtrace.com/msp",
+      "peers": [
+        "peer1.org0.foodtrace.com",
+        "peer2.org0.foodtrace.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.org0.foodtrace.com"
+      ]
+    },
+    "org1.foodtrace.com": {
+      "mspid": "org1-foodtrace-com",
+      "cryptoPath": "peerOrganizations/org1.foodtrace.com/users/{username}@org1.foodtrace.com/msp",
+      "peers": [
+        "peer1.org1.foodtrace.com",
+        "peer2.org1.foodtrace.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.org1.foodtrace.com"
+      ]
+    },
+    "org2.foodtrace.com": {
+      "mspid": "org2-foodtrace-com",
+      "cryptoPath": "peerOrganizations/org2.foodtrace.com/users/{username}@org2.foodtrace.com/msp",
+      "peers": [
+        "peer1.org2.foodtrace.com",
+        "peer2.org2.foodtrace.com"
+      ],
+      "certificateAuthorities": [
+       "ca1.org2.foodtrace.com"
+      ]
+    }
+  },
+  "orderers": {
+    "orderer1.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7009",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer1.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICrTCCAlSgAwIBAgIURYaQSQgakZb/K2LUmQ3Mi8ITMHgwCgYIKoZIzj0EAwIw\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA1mb29kdHJhY2UuY29tMRwwGgYDVQQDDBN0bHNj\nYS5mb29kdHJhY2UuY29tMB4XDTIzMDMwMjA5MDEyOFoXDTMzMDIyNzA5MDEyOFow\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA1mb29kdHJhY2UuY29tMRwwGgYDVQQDDBN0bHNj\nYS5mb29kdHJhY2UuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcTR5fsiF\nLftMrF1cpnBML5AbNqIYbLZy5zjW6Py1d+n307JWmPANy2T40+8kMN4FzyPmmCdd\nEdh3LjRpQ3o/zaOBzzCBzDAdBgNVHQ4EFgQU2uB7j4fx4DybgjlIQEs9gEDeYscw\nHwYDVR0jBBgwFoAU2uB7j4fx4DybgjlIQEs9gEDeYscwDwYDVR0TAQH/BAUwAwEB\n/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC\nMEoGA1UdEQRDMEGHBGUrzrSCE3Rsc2NhLmZvb2R0cmFjZS5jb22CE3Rsc2NhLWZv\nb2R0cmFjZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNHADBEAiBr\nJft7c8I8yXlkgtVS6muL6vtLf4f//69cPefepWCIoQIgfidDay0sdHPjO3/1sF4r\nRi8AFOMXDFSkiFOiKNttmOY=\n-----END CERTIFICATE-----"
+      }
+    },
+    "orderer2.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7010",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer2.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICrTCCAlSgAwIBAgIURYaQSQgakZb/K2LUmQ3Mi8ITMHgwCgYIKoZIzj0EAwIw\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA1mb29kdHJhY2UuY29tMRwwGgYDVQQDDBN0bHNj\nYS5mb29kdHJhY2UuY29tMB4XDTIzMDMwMjA5MDEyOFoXDTMzMDIyNzA5MDEyOFow\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA1mb29kdHJhY2UuY29tMRwwGgYDVQQDDBN0bHNj\nYS5mb29kdHJhY2UuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcTR5fsiF\nLftMrF1cpnBML5AbNqIYbLZy5zjW6Py1d+n307JWmPANy2T40+8kMN4FzyPmmCdd\nEdh3LjRpQ3o/zaOBzzCBzDAdBgNVHQ4EFgQU2uB7j4fx4DybgjlIQEs9gEDeYscw\nHwYDVR0jBBgwFoAU2uB7j4fx4DybgjlIQEs9gEDeYscwDwYDVR0TAQH/BAUwAwEB\n/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC\nMEoGA1UdEQRDMEGHBGUrzrSCE3Rsc2NhLmZvb2R0cmFjZS5jb22CE3Rsc2NhLWZv\nb2R0cmFjZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNHADBEAiBr\nJft7c8I8yXlkgtVS6muL6vtLf4f//69cPefepWCIoQIgfidDay0sdHPjO3/1sF4r\nRi8AFOMXDFSkiFOiKNttmOY=\n-----END CERTIFICATE-----"
+      }
+    },
+    "orderer3.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7011",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer3.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICrTCCAlSgAwIBAgIURYaQSQgakZb/K2LUmQ3Mi8ITMHgwCgYIKoZIzj0EAwIw\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA1mb29kdHJhY2UuY29tMRwwGgYDVQQDDBN0bHNj\nYS5mb29kdHJhY2UuY29tMB4XDTIzMDMwMjA5MDEyOFoXDTMzMDIyNzA5MDEyOFow\nbjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRYwFAYDVQQKDA1mb29kdHJhY2UuY29tMRwwGgYDVQQDDBN0bHNj\nYS5mb29kdHJhY2UuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcTR5fsiF\nLftMrF1cpnBML5AbNqIYbLZy5zjW6Py1d+n307JWmPANy2T40+8kMN4FzyPmmCdd\nEdh3LjRpQ3o/zaOBzzCBzDAdBgNVHQ4EFgQU2uB7j4fx4DybgjlIQEs9gEDeYscw\nHwYDVR0jBBgwFoAU2uB7j4fx4DybgjlIQEs9gEDeYscwDwYDVR0TAQH/BAUwAwEB\n/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC\nMEoGA1UdEQRDMEGHBGUrzrSCE3Rsc2NhLmZvb2R0cmFjZS5jb22CE3Rsc2NhLWZv\nb2R0cmFjZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNHADBEAiBr\nJft7c8I8yXlkgtVS6muL6vtLf4f//69cPefepWCIoQIgfidDay0sdHPjO3/1sF4r\nRi8AFOMXDFSkiFOiKNttmOY=\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "peers": {
+    "peer1.org0.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7003",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.org0.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIIC0TCCAnagAwIBAgIUQwYKRe2AsgdEuIiE0d4DTEFNXhAwCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcwLmZvb2R0cmFjZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5vcmcwLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMTUzWhcNMzMw\nMjI3MDkwMTUzWjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzAuZm9vZHRyYWNlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLm9yZzAuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABIGJ6JZJ18cZSypCmSy7C5dYbn68YHk51M6uyBPebi/F\nEY55JOkAwp+z4JfPNKMCG8zp3QRq16VPvH9jbKG1EtKjgdswgdgwHQYDVR0OBBYE\nFJcDy5gXtnMnTrmSoI7ScpCica/QMB8GA1UdIwQYMBaAFJcDy5gXtnMnTrmSoI7S\ncpCica/QMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwRlK860ghl0bHNjYTEu\nb3JnMC5mb29kdHJhY2UuY29tghl0bHNjYTEtb3JnMC1mb29kdHJhY2UtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAM3DAkOIrm87qgvDA37w\nXU+JmBUiA8eIzg9WWcJ65JSkAiEAmZzifHUY0vJEQzvbY55ySMjVYl4K3ihsQLvu\nZUKj2oA=\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer2.org0.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7004",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer2.org0.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIIC0TCCAnagAwIBAgIUQwYKRe2AsgdEuIiE0d4DTEFNXhAwCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcwLmZvb2R0cmFjZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5vcmcwLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMTUzWhcNMzMw\nMjI3MDkwMTUzWjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzAuZm9vZHRyYWNlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLm9yZzAuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABIGJ6JZJ18cZSypCmSy7C5dYbn68YHk51M6uyBPebi/F\nEY55JOkAwp+z4JfPNKMCG8zp3QRq16VPvH9jbKG1EtKjgdswgdgwHQYDVR0OBBYE\nFJcDy5gXtnMnTrmSoI7ScpCica/QMB8GA1UdIwQYMBaAFJcDy5gXtnMnTrmSoI7S\ncpCica/QMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwRlK860ghl0bHNjYTEu\nb3JnMC5mb29kdHJhY2UuY29tghl0bHNjYTEtb3JnMC1mb29kdHJhY2UtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAM3DAkOIrm87qgvDA37w\nXU+JmBUiA8eIzg9WWcJ65JSkAiEAmZzifHUY0vJEQzvbY55ySMjVYl4K3ihsQLvu\nZUKj2oA=\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer1.org1.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7005",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.org1.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIIC0DCCAnagAwIBAgIUFFi2I50GLX1uz5SzOzo+vAxHwHgwCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcxLmZvb2R0cmFjZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5vcmcxLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMjE0WhcNMzMw\nMjI3MDkwMjE0WjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzEuZm9vZHRyYWNlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLm9yZzEuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABFJp8rhE+lZZyEQG+NZ8DDpggRizCkm1kOOv50drXBC2\nOqgoB0gg/GTUk2RAP8t8gEiusLVP1JLIi67DHgvB2LyjgdswgdgwHQYDVR0OBBYE\nFOG1P6eiEFMo+nK0udVZmZbydONpMB8GA1UdIwQYMBaAFOG1P6eiEFMo+nK0udVZ\nmZbydONpMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwRlK860ghl0bHNjYTEu\nb3JnMS5mb29kdHJhY2UuY29tghl0bHNjYTEtb3JnMS1mb29kdHJhY2UtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIhAMAPay78y1yUTWfcSsTh\nFPwK7wrVy/jjaPtpgIKesWu7AiBbHoDyzpqoSLlIRgUxoxocQhPEgvwPEflFRmr7\n0De5FA==\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer2.org1.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7006",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer2.org1.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIIC0DCCAnagAwIBAgIUFFi2I50GLX1uz5SzOzo+vAxHwHgwCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcxLmZvb2R0cmFjZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5vcmcxLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMjE0WhcNMzMw\nMjI3MDkwMjE0WjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzEuZm9vZHRyYWNlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLm9yZzEuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABFJp8rhE+lZZyEQG+NZ8DDpggRizCkm1kOOv50drXBC2\nOqgoB0gg/GTUk2RAP8t8gEiusLVP1JLIi67DHgvB2LyjgdswgdgwHQYDVR0OBBYE\nFOG1P6eiEFMo+nK0udVZmZbydONpMB8GA1UdIwQYMBaAFOG1P6eiEFMo+nK0udVZ\nmZbydONpMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwRlK860ghl0bHNjYTEu\nb3JnMS5mb29kdHJhY2UuY29tghl0bHNjYTEtb3JnMS1mb29kdHJhY2UtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIhAMAPay78y1yUTWfcSsTh\nFPwK7wrVy/jjaPtpgIKesWu7AiBbHoDyzpqoSLlIRgUxoxocQhPEgvwPEflFRmr7\n0De5FA==\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer1.org2.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7007",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer1.org2.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIIC0DCCAnagAwIBAgIUfN2COiWwOwA62Ea/z7EkBFo5z14wCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcyLmZvb2R0cmFjZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5vcmcyLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMjM0WhcNMzMw\nMjI3MDkwMjM0WjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzIuZm9vZHRyYWNlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLm9yZzIuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABDRtgMCo8pT+qsWp7ydnBWSiG0rLc8ouqBhf6vp3TFAs\nng6RfpuVrVIFWYQxKdy78RMztWZnwr6dzBKcTZW3I2qjgdswgdgwHQYDVR0OBBYE\nFIllkI8rgy77iu6Ysk+LO6H85B0SMB8GA1UdIwQYMBaAFIllkI8rgy77iu6Ysk+L\nO6H85B0SMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwRlK860ghl0bHNjYTEu\nb3JnMi5mb29kdHJhY2UuY29tghl0bHNjYTEtb3JnMi1mb29kdHJhY2UtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIhANUxDkvyLU1iKGclCy0F\na3cBrZKZeAnU/wtaCiKpP99rAiBCjmBVegX4YaCe+nOhee/1jnl2Pwkow5BFE2Q2\nKbCyrQ==\n-----END CERTIFICATE-----"
+      }
+    },
+    "peer2.org2.foodtrace.com": {
+      "url": "grpcs://101.43.206.180:7008",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer2.org2.foodtrace.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIIC0DCCAnagAwIBAgIUfN2COiWwOwA62Ea/z7EkBFo5z14wCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcyLmZvb2R0cmFjZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5vcmcyLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMjM0WhcNMzMw\nMjI3MDkwMjM0WjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzIuZm9vZHRyYWNlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLm9yZzIuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABDRtgMCo8pT+qsWp7ydnBWSiG0rLc8ouqBhf6vp3TFAs\nng6RfpuVrVIFWYQxKdy78RMztWZnwr6dzBKcTZW3I2qjgdswgdgwHQYDVR0OBBYE\nFIllkI8rgy77iu6Ysk+LO6H85B0SMB8GA1UdIwQYMBaAFIllkI8rgy77iu6Ysk+L\nO6H85B0SMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwRlK860ghl0bHNjYTEu\nb3JnMi5mb29kdHJhY2UuY29tghl0bHNjYTEtb3JnMi1mb29kdHJhY2UtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIhANUxDkvyLU1iKGclCy0F\na3cBrZKZeAnU/wtaCiKpP99rAiBCjmBVegX4YaCe+nOhee/1jnl2Pwkow5BFE2Q2\nKbCyrQ==\n-----END CERTIFICATE-----"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.org0.foodtrace.com": {
+      "url": "https://101.43.206.180:7000",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIICxTCCAmqgAwIBAgIULSEFnYhHoc+iC48k3dgmGNLm+PowCgYIKoZIzj0EAwIw\ndjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcwLmZvb2R0cmFjZS5jb20xHzAdBgNVBAMM\nFmNhMS5vcmcwLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMTUzWhcNMzMwMjI3\nMDkwMTUzWjB2MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmEx\nEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzAuZm9vZHRyYWNlLmNvbTEf\nMB0GA1UEAwwWY2ExLm9yZzAuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49AgEGCCqG\nSM49AwEHA0IABKs9KZ77IdB2lMcIlkqY5cIfFXhwL8Hyt58KPh6pI/T2clWKUnRV\n5OskcSAUlpHwGWqiapRwqhTZfeH5PVBpZJ6jgdUwgdIwHQYDVR0OBBYEFJbtb6kO\nZeFuzj1AyU1aeMnSeXJVMB8GA1UdIwQYMBaAFJbtb6kOZeFuzj1AyU1aeMnSeXJV\nMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjBQBgNVHREESTBHhwRlK860ghZjYTEub3JnMC5mb29k\ndHJhY2UuY29tghZjYTEtb3JnMC1mb29kdHJhY2UtY29tgglsb2NhbGhvc3SHBH8A\nAAEwCgYIKoZIzj0EAwIDSQAwRgIhALXdpxyqgYVJGJ4gLnR8oisaFoxAp8tkAfAG\nx9X1MjO6AiEA5HpfHiy0Tw623xnFp2SVWXXVzSNpmhihXzuZO6KbtJ4=\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.org1.foodtrace.com": {
+      "url": "https://101.43.206.180:7001",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIICxTCCAmqgAwIBAgIUcTNLQHus+2hHJDpTOYG09NZPwYUwCgYIKoZIzj0EAwIw\ndjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcxLmZvb2R0cmFjZS5jb20xHzAdBgNVBAMM\nFmNhMS5vcmcxLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMjEzWhcNMzMwMjI3\nMDkwMjEzWjB2MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmEx\nEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzEuZm9vZHRyYWNlLmNvbTEf\nMB0GA1UEAwwWY2ExLm9yZzEuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49AgEGCCqG\nSM49AwEHA0IABMnWBTtIFBudjMt5m1ERM8PFMgb9TwHhnob+H7UZp/o36xgEB7Qo\nwtRU6prZVwsoeBer6u9yUNaGPahY9seeWICjgdUwgdIwHQYDVR0OBBYEFMlHsYas\nnToDTIpiHfN4LpkNtcvvMB8GA1UdIwQYMBaAFMlHsYasnToDTIpiHfN4LpkNtcvv\nMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjBQBgNVHREESTBHhwRlK860ghZjYTEub3JnMS5mb29k\ndHJhY2UuY29tghZjYTEtb3JnMS1mb29kdHJhY2UtY29tgglsb2NhbGhvc3SHBH8A\nAAEwCgYIKoZIzj0EAwIDSQAwRgIhAMN5uLeMrckHHpsZLMKkTH1Q3tgo2Zq7X0tV\nAfWBW64/AiEA3vasp8Bv/CWnumJclI6CnpO7LGcU51iLtys1xG2CgFY=\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.org2.foodtrace.com": {
+      "url": "https://101.43.206.180:7002",
+      "tlsCACerts": {
+        "pem": ["-----BEGIN CERTIFICATE-----\nMIICxDCCAmqgAwIBAgIUV4cKaCkCj+PF+V6pgaIuPKNCA2owCgYIKoZIzj0EAwIw\ndjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJvcmcyLmZvb2R0cmFjZS5jb20xHzAdBgNVBAMM\nFmNhMS5vcmcyLmZvb2R0cmFjZS5jb20wHhcNMjMwMzAyMDkwMjM0WhcNMzMwMjI3\nMDkwMjM0WjB2MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmEx\nEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEm9yZzIuZm9vZHRyYWNlLmNvbTEf\nMB0GA1UEAwwWY2ExLm9yZzIuZm9vZHRyYWNlLmNvbTBZMBMGByqGSM49AgEGCCqG\nSM49AwEHA0IABJZ4xleN8KwgvNrOfBqEYbpifFqPxK8gkgnPP05gjVMZPECBGLIo\n/gyKX77C2PZzKvWXmeIASq74lNRMe7zLo8yjgdUwgdIwHQYDVR0OBBYEFI+k/m7R\n22/LS6bTZ63InJJLArQQMB8GA1UdIwQYMBaAFI+k/m7R22/LS6bTZ63InJJLArQQ\nMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjBQBgNVHREESTBHhwRlK860ghZjYTEub3JnMi5mb29k\ndHJhY2UuY29tghZjYTEtb3JnMi1mb29kdHJhY2UtY29tgglsb2NhbGhvc3SHBH8A\nAAEwCgYIKoZIzj0EAwIDSAAwRQIgXyhDBppngSWVjhPcrOXlm9/3t5L23Y5OJgHy\nWfaRLHsCIQDyHmmc0uc5ayQqxepakNscsmZHTA7eBrgcI8vv91BCiw==\n-----END CERTIFICATE-----"]
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  },
+  "entityMatchers": {
+    "orderer": [
+      { "mappedHost": "orderer1.foodtrace.com",
+        "pattern": "(\\w*)orderer1.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer1.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7009"
+      },
+      { "mappedHost": "orderer2.foodtrace.com",
+        "pattern": "(\\w*)orderer2.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer2.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7010"
+      },
+      { "mappedHost": "orderer3.foodtrace.com",
+        "pattern": "(\\w*)orderer3.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "orderer3.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7011"
+      }
+    ],
+    "peer": [
+      { "mappedHost": "peer1.org0.foodtrace.com",
+        "pattern": "(\\w*)peer1.org0.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.org0.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7003"
+      },
+      { "mappedHost": "peer2.org0.foodtrace.com",
+        "pattern": "(\\w*)peer2.org0.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer2.org0.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7004"
+      },
+      { "mappedHost": "peer1.org1.foodtrace.com",
+        "pattern": "(\\w*)peer1.org1.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.org1.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7005"
+      },
+      { "mappedHost": "peer2.org1.foodtrace.com",
+        "pattern": "(\\w*)peer2.org1.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer2.org1.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7006"
+      },
+      { "mappedHost": "peer1.org2.foodtrace.com",
+        "pattern": "(\\w*)peer1.org2.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer1.org2.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7007"
+      },
+      { "mappedHost": "peer2.org2.foodtrace.com",
+        "pattern": "(\\w*)peer2.org2.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "peer2.org2.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7008"
+      }
+    ],
+  "certificateAuthorities": [
+      { "mappedHost": "ca1.org0.foodtrace.com",
+        "pattern": "(\\w*)ca1.org0.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.org0.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7000"
+      },
+      { "mappedHost": "ca1.org1.foodtrace.com",
+        "pattern": "(\\w*)ca1.org1.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.org1.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7001"
+      },
+      { "mappedHost": "ca1.org2.foodtrace.com",
+        "pattern": "(\\w*)ca1.org2.foodtrace.com(\\w*)",
+        "sslTargetOverrideUrlSubstitutionExp": "ca1.org2.foodtrace.com",
+        "urlSubstitutionExp": "101.43.206.180:7002"
+      }
+    ]
+  }
+}
